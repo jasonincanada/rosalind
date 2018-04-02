@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+2 Apr 2018 | [PROT](./prot.hs) | Translate an RNA sequence into amino acids
 2 Apr 2018 | [IPRB](./iprb.ods) | Mendel's first law (Spreadsheet)
 2 Apr 2018 | [HAMM](./hamm.hs) | Calculate Hamming distance between 2 strands
 2 Apr 2018 | [GC](./gc.hs) | Computing GC content
