@@ -5,9 +5,8 @@
    URL:     http://rosalind.info/problems/cons/
 -}
 
-import Data.List      (maximumBy)
+import Data.List      (intercalate, maximumBy)
 import Data.Ord       (comparing)
-import Data.List      (intercalate)
 import Bioinformatics (fastaDNA, parseFASTA)
 
 type Nucleotide = Char
