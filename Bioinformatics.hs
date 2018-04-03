@@ -4,7 +4,7 @@
    Author: Jason Hooper
 -}
 
-module Bioinformatics (parseFASTA, fastaDNA) where
+module Bioinformatics (FASTA(FASTA), fastaID, parseFASTA, fastaDNA) where
 
 import Control.Applicative (many, some)
 import NanoParsec
