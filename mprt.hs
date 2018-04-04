@@ -22,7 +22,7 @@ nGlycoMotif = do
 findMotif :: Parser String -> String -> [Int]
 findMotif parser seq = go 1 seq
   where go _ ""  = []
-        go i seq = case parse nGlycoMotif seq of
+        go i seq = case parse parser seq of
                      [] ->     go (i+1) (tail seq)
                      _  -> i : go (i+1) (tail seq)
 
