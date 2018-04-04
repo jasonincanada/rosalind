@@ -12,7 +12,7 @@ do
   echo "Getting FASTA record from $url"
 
   # The -L follows redirects (seemingly common in the FASTA db)
-  curl -L $url --output $file 
+  curl -L $url --output "fasta/$file"
 
 done < "$filename"
 

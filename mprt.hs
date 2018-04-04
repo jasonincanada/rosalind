@@ -28,7 +28,7 @@ findMotif parser seq = go 1 seq
 
 getIndices :: String -> IO [Int]
 getIndices id = do
-  text <- readFile $ id ++ ".fasta"
+  text <- readFile $ "fasta/" ++ id ++ ".fasta"
   let parsed = parseFASTAaminos text
   return $ findMotif nGlycoMotif (fastaSeq $ head parsed)
 
