@@ -7,7 +7,7 @@
 
 import Data.List      (intercalate, maximumBy)
 import Data.Ord       (comparing)
-import Bioinformatics (fastaDNA, parseFASTA)
+import Bioinformatics (fastaDNA, parseFASTAdna)
 
 type Nucleotide = Char
 
@@ -51,7 +51,7 @@ showProfile ps n = [n] ++ ": " ++ counts
 
 main = do
   file <- readFile "cons.input"
-  let parsed = parseFASTA file
+  let parsed = parseFASTAdna file
   let profiled = profile (map fastaDNA parsed)
   print $ consensus profiled
   print $ showProfile profiled 'A'

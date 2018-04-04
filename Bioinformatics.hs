@@ -4,53 +4,69 @@
    Author: Jason Hooper
 -}
 
-module Bioinformatics (FASTA(FASTA), fastaID, parseFASTA, fastaDNA) where
+module Bioinformatics (FASTA(FASTA), fastaID, fastaSeq, parseFASTAaminos, parseFASTAdna) where
 
-import Control.Applicative (many, some)
+import Control.Applicative (many, some, (<|>))
 import NanoParsec
 
--- A FASTA record is an ID with a DNA sequence
+-- A FASTA record is an ID with a DNA/RNA/Amino sequence
 data FASTA = FASTA String String
              deriving (Show)
 
 fastaID :: FASTA -> String
 fastaID (FASTA id _) = id
 
-fastaDNA :: FASTA -> String
-fastaDNA (FASTA _ dna) = dna
+fastaSeq :: FASTA -> String
+fastaSeq (FASTA _ seq) = seq
+
+fastaSequence :: FASTA -> String
+fastaSequence (FASTA _ seq) = seq
 
 {- Parsing -}
 
-dna :: Parser String
-dna = some $ oneOf "ACGT"
+dna, rna, aminos :: Parser String
+dna    = some $ oneOf "ACGT"
+rna    = some $ oneOf "ACGU"
+aminos = some $ oneOf "ACDEFGHIKLMNPQRSTVWY"
 
 newline :: Parser (String -> String -> String)
 newline = char '\n' >> return (++)
 
-linesOfDNA :: Parser String
-linesOfDNA = chainl dna newline []
+linesOfDNA, linesOfRNA, linesOfAminos :: Parser String
+linesOfDNA    = linesOf dna
+linesOfRNA    = linesOf rna
+linesOfAminos = linesOf aminos
+
+linesOf :: Parser String -> Parser String
+linesOf p = do
+  segments <- many (p <|> string "\n")
+  return $ concat $ filter (/="\n") segments
+
+untilNewline :: Parser String
+untilNewline = many (satisfy (/='\n'))
 
 -- Parse ">Rosalind_1234" to "Rosalind_1234"
-rosalindID :: Parser String
-rosalindID = do
+fastaLabel :: Parser String
+fastaLabel = do
   char '>'
-  rosalind <- string "Rosalind_"
-  id       <- many digit
-  return $ rosalind ++ id
+  label <- untilNewline
+  return label
 
 -- Parse a FASTA id and possibly many lines of DNA
-fasta :: Parser FASTA
-fasta = do
-  id <- rosalindID
+fasta :: Parser String -> Parser FASTA
+fasta p = do
+  label <- fastaLabel
   char '\n'
-  dna <- linesOfDNA
-  many (char '\n')
-  return $ FASTA id dna
+  sequence <- linesOf p
+  return $ FASTA label sequence
 
 -- Parse a file of FASTA data
-fastas :: Parser [FASTA]
-fastas = many fasta
+fastas :: Parser String -> Parser [FASTA]
+fastas p = many (fasta p)
 
-parseFASTA :: String -> [FASTA]
-parseFASTA s = run fastas s
+parseFASTAdna :: String -> [FASTA]
+parseFASTAdna s = run (fastas dna) s
+
+parseFASTAaminos :: String -> [FASTA]
+parseFASTAaminos s = run (fastas aminos) s
 

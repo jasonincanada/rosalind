@@ -6,7 +6,7 @@
 -}
 
 import Data.List      (intercalate, isSuffixOf)
-import Bioinformatics (FASTA(FASTA), fastaDNA, fastaID, parseFASTA)
+import Bioinformatics (FASTA(FASTA), fastaDNA, fastaID, parseFASTAdna)
 
 data DiGraph a = DiGraph [(a, a)]
 
@@ -23,6 +23,6 @@ process k fs = DiGraph [ (fastaID s, fastaID t)
 
 main = do
   file <- readFile "grph.input"
-  let parsed = parseFASTA file
+  let parsed = parseFASTAdna file
   print $ process 3 parsed
 

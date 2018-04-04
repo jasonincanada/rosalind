@@ -8,7 +8,7 @@
 import Data.List           (maximumBy)
 import Data.Ord            (comparing)
 import Control.Applicative (many, some)
-import Bioinformatics      (FASTA(FASTA), fastaID, parseFASTA)
+import Bioinformatics      (FASTA(FASTA), fastaID, parseFASTAdna)
 import NanoParsec
 
 -- Return the percentage of a DNA string that consists of C or G nucleotides
@@ -23,7 +23,7 @@ gcpct (FASTA _ dna) = gcContent dna
 
 main = do
   file <- readFile "gc.input"
-  let parsed = parseFASTA file
+  let parsed = parseFASTAdna file
   let max = maximumBy (comparing gcpct) parsed
   print $ (fastaID max, 100 * gcpct max)
 
