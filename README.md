@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+4 Apr 2018 | [GRPH](./grph.hs) | Find k-length overlaps between DNA strands
 3 Apr 2018 | [CONS](./cons.hs) | Find the consensus and profile for a set of DNA strands
 2 Apr 2018 | [SUBS](./subs.hs) | Find indices of a substring in a string
 2 Apr 2018 | [PROT](./prot.hs) | Translate an RNA sequence into amino acids
