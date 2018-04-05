@@ -17,7 +17,7 @@ codonSeqToAminos codons = let chunks = chunksOf 3 codons
                    
 
 isStop :: Codon -> Bool
-isStop codon = codon `notElem` stops
+isStop codon = codon `elem` stops
 
 stops :: [Codon]
 stops = [ "UAA", "UAG", "UGA" ]

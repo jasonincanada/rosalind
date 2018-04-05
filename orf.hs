@@ -35,7 +35,7 @@ codon = do
   c2 <- oneOf "ACGU"
   c3 <- oneOf "ACGU"
   let codon = [c1,c2,c3]
-  guard $ isStop codon
+  guard $ not $ isStop codon
   return codon
 
 stopCodon :: Parser String
