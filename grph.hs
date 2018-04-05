@@ -6,7 +6,7 @@
 -}
 
 import Data.List      (intercalate, isSuffixOf)
-import Bioinformatics (FASTA(FASTA), fastaDNA, fastaID, parseFASTAdna)
+import Bioinformatics (FASTA(FASTA), fastaSeq, fastaID, parseFASTAdna)
 
 data DiGraph a = DiGraph [(a, a)]
 
@@ -17,8 +17,8 @@ process :: Int -> [FASTA] -> DiGraph String
 process k fs = DiGraph [ (fastaID s, fastaID t) 
                          | s <- fs,
                            t <- fs,
-                           fastaDNA s /= fastaDNA t,
-                           isSuffixOf (take k $ fastaDNA t) (fastaDNA s)
+                           fastaSeq s /= fastaSeq t,
+                           isSuffixOf (take k $ fastaSeq t) (fastaSeq s)
                        ]
 
 main = do
