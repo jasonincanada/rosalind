@@ -1,20 +1,19 @@
 module Codons(codonSeqToAminos, isStop) where
 
-import Control.Applicative (many)
-import Data.List           (find)
-import Data.List.Split     (chunksOf)
+import Data.List (find)
 
 type Codon = String
 type Amino = Char
 
 codonSeqToAminos :: String -> [Amino]
-codonSeqToAminos codons = let chunks = chunksOf 3 codons
-                          in  concatMap f chunks
-  where
-     f chunk = case find ((==chunk) . fst) table of
-                 Nothing     -> ""
-                 Just (_, c) -> [c]
-                   
+codonSeqToAminos []     = []
+codonSeqToAminos codons =
+  case find ((==this) . fst) table of
+    Nothing     -> []
+    Just (_, c) -> c : codonSeqToAminos rest
+
+  where this = take 3 codons
+        rest = drop 3 codons
 
 isStop :: Codon -> Bool
 isStop codon = codon `elem` stops
