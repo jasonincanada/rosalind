@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+6 Apr 2018 | [PRTM](./prtm.hs) | Calculate protein mass
 5 Apr 2018 | [ORF](./orf.hs) | Find all candidate proteins from a strand of DNA
 4 Apr 2018 | [MPRT](./mprt.hs) | Find protein motifs in a FASTA amino acid sequence
 4 Apr 2018 | [GRPH](./grph.hs) | Find k-length overlaps between DNA strands
