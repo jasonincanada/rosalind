@@ -15,7 +15,7 @@ import NanoParsec
 gcContent :: String -> Float
 gcContent [] = 0
 gcContent ns = num / denom
-  where num   = fromIntegral $ length . filter (flip elem "CG") $ ns
+  where num   = fromIntegral $ length . filter (`elem` "CG") $ ns
         denom = fromIntegral $ length ns
 
 gcpct :: FASTA -> Float
@@ -25,5 +25,5 @@ main = do
   file <- readFile "gc.input"
   let parsed = parseFASTAdna file
   let max = maximumBy (comparing gcpct) parsed
-  print $ (fastaID max, 100 * gcpct max)
+  print (fastaID max, 100 * gcpct max)
 
