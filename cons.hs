@@ -5,7 +5,7 @@
    URL:     http://rosalind.info/problems/cons/
 -}
 
-import Data.List      (intercalate, maximumBy)
+import Data.List      (maximumBy)
 import Data.Ord       (comparing)
 import Bioinformatics (fastaSeq, parseFASTAdna)
 
@@ -47,7 +47,7 @@ consensus (p:ps) = maxLetter p : consensus ps
 showProfile :: [Profile] -> Nucleotide -> String
 showProfile ps n = [n] ++ ": " ++ counts
   where
-    counts = intercalate " " $ map (show . get n) ps
+    counts = unwords $ map (show . get n) ps
 
 main = do
   file <- readFile "cons.input"
