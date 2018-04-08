@@ -10,7 +10,7 @@ hamming xs ys
   | length xs /= length ys = Nothing
   | otherwise              = Just $ length different
   where 
-    different = filter (\(x, y) -> x /= y) zipped
+    different = filter (uncurry (/=)) zipped
     zipped    = zip xs ys
 
 main = do
