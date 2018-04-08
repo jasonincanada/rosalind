@@ -18,7 +18,7 @@ process k fs = DiGraph [ (fastaID s, fastaID t)
                          | s <- fs,
                            t <- fs,
                            fastaSeq s /= fastaSeq t,
-                           isSuffixOf (take k $ fastaSeq t) (fastaSeq s)
+                           take k (fastaSeq t) `isSuffixOf` fastaSeq s
                        ]
 
 main = do
