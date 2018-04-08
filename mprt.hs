@@ -5,7 +5,7 @@
    URL:     http://rosalind.info/problems/mprt/
 -}
 
-import Data.List      (intercalate)
+import Control.Monad  (unless)
 import Bioinformatics (FASTA(FASTA), fastaSeq, parseFASTAaminos)
 import NanoParsec     (Parser, char, oneOf, parse, satisfy)
 
@@ -16,7 +16,7 @@ nGlycoMotif = do
   notp1 <- satisfy (/='P')
   st    <- oneOf "ST"
   notp2 <- satisfy (/='P')
-  return $ [n, notp1, st, notp2]
+  return [n, notp1, st, notp2]
 
 -- Return the (1-based) indices of a parser's matches in a sequence
 findMotif :: Parser String -> String -> [Int]
@@ -35,12 +35,9 @@ getIndices id = do
 prints :: String -> IO ()
 prints id = do
   indices <- getIndices id
-  if not (null indices)
-  then do
-        putStrLn id
-        putStrLn $ intercalate " " (map show indices)
-  else do
-        return ()
+  unless (null indices) $ do
+    putStrLn id
+    putStrLn $ unwords (map show indices)
 
 main = do
   ids <- readFile "mprt.input"
