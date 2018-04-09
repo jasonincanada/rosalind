@@ -1,4 +1,4 @@
-module Codons(codonSeqToAminos, isStop) where
+module Codons(Codon, Amino, codonSeqToAminos, isStop, table) where
 
 import Data.List (find)
 
