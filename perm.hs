@@ -18,6 +18,6 @@ permute n = (count, perms)
 main = do
   let n = 5
   let (count, perms) = permute n
-  print $ count
-  putStrLn $ intercalate "\n" $ map (unwords . map show) perms
+  print count
+  mapM_ (putStrLn . unwords . map show) perms
 
