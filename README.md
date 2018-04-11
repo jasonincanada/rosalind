@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+10 Apr 2018 | [SIGN](./sign.hs) | Enumerate oriented gene orderings
 9 Apr 2018 | [MRNA](./mrna.hs) | Counting inferred mRNA sequences for a protein
 9 Apr 2018 | [PERM](./perm.hs) | Basic permutations
 6 Apr 2018 | [PRTM](./prtm.hs) | Calculate protein mass
