@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+12 Apr 2018 | [PROB](./prob.hs) | Probability of matching a string given a GC content
 11 Apr 2018 | [PPER](./pper.hs) | Partial permutations
 10 Apr 2018 | [SIGN](./sign.hs) | Enumerate oriented gene orderings
 9 Apr 2018 | [MRNA](./mrna.hs) | Counting inferred mRNA sequences for a protein
