@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+12 Apr 2018 | [TREE](./tree.hs) | Calculate number of edges needed to complete a tree
 12 Apr 2018 | [SSEQ](./sseq.hs) | Find (not necessarily contiguous) indices of characters in a string
 12 Apr 2018 | [SPLC](./splc.hs) | Splice introns out of a DNA sequence and transcribe to protein
 12 Apr 2018 | [PROB](./prob.hs) | Probability of matching a string given a GC content
