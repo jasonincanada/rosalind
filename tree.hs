@@ -15,6 +15,7 @@ process n adj = length graphs + singles - 1
     known   = sum $ map length graphs
     singles = n - known
 
+    tally :: Eq a => (a, a) -> [[a]] -> [[a]]
     tally (a,b) [] = [[a, b]]
     tally (a,b) (g:gs)
       | a `elem` g = (b : g) : gs
