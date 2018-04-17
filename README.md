@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+16 Apr 2018 | [TRAN](./tran.hs) | Calculate transition/transversion ratio
 12 Apr 2018 | [REVP](./revp.hs) | Locate restriction sites on a strand of DNA
 12 Apr 2018 | [TREE](./tree.hs) | Calculate number of edges needed to complete a tree
 12 Apr 2018 | [SSEQ](./sseq.hs) | Find (not necessarily contiguous) indices of characters in a string
