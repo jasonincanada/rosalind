@@ -17,7 +17,7 @@ complement = map c
         c 'G' = 'C'
         c 'C' = 'G'
 
-rc :: String -> String
+rc :: DNA -> DNA
 rc = reverse . complement
 
 -- Count number of nucleotide differences between two DNA strands.
@@ -35,7 +35,6 @@ process dnas = nub $ [ (d1, d2) | d1 <- dnas,
                                   d2 <- dnas,
                                   hamming d1 (rc d2) == 1,
                                   count d2 >= 2 ]
-
   where 
     -- Count the number of times we see this strand or its reverse complement
     count :: DNA -> Int
