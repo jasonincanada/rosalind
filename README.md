@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+19 Apr 2018 | [CORR](./corr.hs) | Correct errors in reads
 17 Apr 2018 | [LONG](./long.hs) | Reconstitute a DNA strand from smaller snippets
 16 Apr 2018 | [TRAN](./tran.hs) | Calculate transition/transversion ratio
 12 Apr 2018 | [REVP](./revp.hs) | Locate restriction sites on a strand of DNA
