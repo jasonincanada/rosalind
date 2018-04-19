@@ -27,18 +27,19 @@ hamming :: DNA -> DNA -> Int
 hamming a b = length . filter (uncurry (/=)) $ zip a b
 
 process :: [DNA] -> [(DNA, DNA)]
-process dnas = nub $ [ (d1, d2) | d1 <- dnas, 
+process dnas = nub [ (d1, f d2) | d1 <- dnas,
                                   d2 <- dnas,
-                                  hamming d1 d2 == 1,
-                                  count d2 >= 2 ]
-               ++ [ (d1, rc d2) | d1 <- dnas, 
-                                  d2 <- dnas,
-                                  hamming d1 (rc d2) == 1,
+                                  f  <- transforms,
+                                  hamming d1 (f d2) == 1,
                                   count d2 >= 2 ]
   where 
     -- Count the number of times we see this strand or its reverse complement
     count :: DNA -> Int
     count dna = length $ filter (\d -> d == dna || rc d == dna) dnas
+
+    -- Various transforms to try on a DNA strand to find its matches
+    transforms :: [DNA -> DNA]
+    transforms = [id, rc]
 
 main = do
   file <- readFile "corr.input"
