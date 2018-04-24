@@ -4,7 +4,7 @@
    Author: Jason Hooper
 -}
 
-module Bioinformatics (FASTA(FASTA), fastaID, fastaSeq, parseFASTAaminos, parseFASTAdna) where
+module Bioinformatics (FASTA(FASTA), fastaID, fastaSeq, parseFASTAaminos, parseFASTAdna, parseFASTArna) where
 
 import Control.Applicative (many, some, (<|>))
 import NanoParsec
@@ -66,6 +66,9 @@ fastas p = many (fasta p)
 
 parseFASTAdna :: String -> [FASTA]
 parseFASTAdna s = run (fastas dna) s
+
+parseFASTArna :: String -> [FASTA]
+parseFASTArna s = run (fastas rna) s
 
 parseFASTAaminos :: String -> [FASTA]
 parseFASTAaminos s = run (fastas aminos) s
