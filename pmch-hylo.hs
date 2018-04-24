@@ -50,9 +50,7 @@ isComplement (_, 'G') = \(_, n) -> n == 'C'
 type RNA = [Char]
 
 prepare :: RNA -> Pool
-prepare rna = go 1 rna
-  where go _ ""     = []
-        go i (r:rs) = (i, r) : go (i+1) rs
+prepare rna = zip [1..] rna
 
 process :: RNA -> [Matching]
 process rna = let pool = prepare rna
