@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+23 Apr 2018 | [PMCH](./pmch.hs) | Count RNA secondary structures (with a bonus [hylomorphism](./pmch-hylo.hs) implementation that took too long with the puzzle input)
 20 Apr 2018 | [LCSM](./lcsm.hs) | Find the longest substring common to a set of strings
 19 Apr 2018 | [CORR](./corr.hs) | Correct errors in reads
 17 Apr 2018 | [LONG](./long.hs) | Reconstitute a DNA strand from smaller snippets
