@@ -3,6 +3,16 @@
    Code:    PMCH
    Problem: Perfect Matchings and RNA Secondary Structures
    URL:     http://rosalind.info/problems/pmch/
+
+   Remarks: This implementation uses a hylomorphism with an algebra and
+            coalgebra to construct a tree, then count the leaves, each leaf
+            representing a distinct perfect matching on the graph of base
+            pair matches.
+
+            For a good description of hylomorphisms, see Bartosz Milewski's
+            blog entry here:
+
+            https://bartoszmilewski.com/2017/12/29/stalking-a-hylomorphism-in-the-wild/
 -}
 
 {-# LANGUAGE DeriveFunctor #-}
