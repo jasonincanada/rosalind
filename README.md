@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+25 Apr 2018 | [LEXF](./lexf.hs) | Construct k-length combinations of elements of a list
 23 Apr 2018 | [PMCH](./pmch.hs) | Count RNA secondary structures (bonus [hylomorphism](./pmch-hylo.hs) implementation, too slow though)
 20 Apr 2018 | [LCSM](./lcsm.hs) | Find the longest substring common to a set of strings
 19 Apr 2018 | [CORR](./corr.hs) | Correct errors in reads
