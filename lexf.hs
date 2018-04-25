@@ -5,8 +5,6 @@
    URL:     http://rosalind.info/problems/lexf/
 -}
 
-import Data.List (nub, permutations)
-
 process :: [a] -> Int -> [[a]]
 process list k = go k
   where go 0 = [[]]
