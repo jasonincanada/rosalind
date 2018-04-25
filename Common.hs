@@ -1,4 +1,4 @@
-module Common (overlap50) where
+module Common (overlap50, allSubs) where
 
 import Data.List (isPrefixOf, isSuffixOf)
 
@@ -14,4 +14,10 @@ overlap50 base addition =
       ++ 
       [ take (len-i) addition ++ base | i <- span,
                                         (drop (len-i) addition) `isPrefixOf` base ]
+
+-- This function is from: https://stackoverflow.com/questions/27523398/creating-a-list-of-substrings-of-a-specified-length-in-haskell
+allSubs :: Int -> [a] -> [[a]]
+allSubs n s
+    | length s >= n = take n s : allSubs n (tail s)
+    | otherwise = []
 
