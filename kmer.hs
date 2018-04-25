@@ -15,10 +15,10 @@ add s map = case M.lookup s map of
               Nothing -> M.insert s 1 map
               Just n  -> M.insert s (n+1) map
 
-composition :: [Char] -> Int -> String -> [Int]
-composition letters k dna = let subs   = allSubs 4 dna
-                                counts = foldr add M.empty subs
-                            in  map (\mer -> fromMaybe 0 (M.lookup mer counts)) (mers 4)
+composition :: String -> [Int]
+composition dna = let subs   = allSubs 4 dna
+                      counts = foldr add M.empty subs
+                  in  map (\mer -> fromMaybe 0 (M.lookup mer counts)) (mers 4)
 
 -- Construct all DNA k-mers in lexicographic order
 mers :: Int -> [String]
@@ -28,6 +28,6 @@ mers k = concat [ map (d:) $ mers (k-1) | d <- "ACGT" ]
 main = do
   file <- readFile "kmer.input"
   let dna = fastaSeq $ head $ parseFASTAdna file
-  let comp = composition "ACGT" 4 dna
+  let comp = composition dna
   putStrLn $ unwords . map show $ comp
 
