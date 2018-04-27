@@ -71,14 +71,14 @@ prepare = reverse . foldl f []
           | otherwise   = Span n 1 : (Span a len : spans)
 
 -- Map [Span 1 1, Span 7 3] to [1, 7, 8, 9]
-extract :: [Span Int] -> [Int]
-extract = concatMap expand
-  where expand (Span n length) = map (n+) [0 .. length-1]
+expand :: [Span Int] -> [Int]
+expand = concatMap extract
+  where extract (Span n length) = map (n+) [0 .. length-1]
 
 main = do
   file <- readFile "lgis-small.input"
   let permutation = map read (words $ head $ tail $ lines file)
   let pool = prepare permutation
   let longest = tail $ hylo coalgebra algebra (Span 0 0, pool)
-  print $ extract longest
+  print $ expand longest
 
