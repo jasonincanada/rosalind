@@ -40,7 +40,7 @@ data TreeF a b = NodeF (Span a) [b]
 
 type Algebra f a = f a -> a
 
-algebra :: Ord a => Algebra (TreeF a) [Span a]
+algebra :: Algebra (TreeF a) [Span a]
 algebra (NodeF span [])   = [span]
 algebra (NodeF span subs) = span : maximumBy (comparing slength) subs
   where slength :: [Span a] -> Int
