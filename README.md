@@ -3,6 +3,8 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+30 Apr 2018 | [SETO](./seto.hs) | Basic set operations
+30 Apr 2018 | [SSET](./sset.hs) | Count subsets
 27 Apr 2018 | [PDST](./pdst.hs) | Create a distance matrix for a set of genetic strings
 25 Apr 2018 | [KMER](./kmer.hs) | Count the 4-mer composition of a DNA string
 25 Apr 2018 | [LEXF](./lexf.hs) | Construct k-length combinations of elements of a list
