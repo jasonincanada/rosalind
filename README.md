@@ -3,6 +3,7 @@ My solutions in [Haskell](https://haskell-lang.org/) for the [Rosalind](http://r
 
 Date | Code | Description / Notes
 --- | --- | ---
+1 May 2018 | [DBRU](./dbru.hs) | Construct a De Bruijn graph
 30 Apr 2018 | [SETO](./seto.hs) | Basic set operations
 30 Apr 2018 | [SSET](./sset.hs) | Count subsets
 27 Apr 2018 | [PDST](./pdst.hs) | Create a distance matrix for a set of genetic strings
