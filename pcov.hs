@@ -47,7 +47,7 @@ hylo :: Functor f => Coalgebra f b -> Algebra f a -> b -> a
 hylo coalg alg = alg . fmap (hylo coalg alg) . coalg
 
 main = do
-  file <- readFile "pcov.input.2"
+  file <- readFile "pcov.2.input"
   let fragments = lines file
   let count = length fragments
   let candidates = hylo coalgebra algebra (head fragments, tail fragments)
