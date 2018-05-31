@@ -27,7 +27,7 @@ data Profile = Profile [Vec]
 
 instance Show Profile where
   show (Profile vecs) = unlines $ map line "ACGT"
-    where line nucleotide = [nucleotide] ++ ": " ++ (intercalate " " $ tallies nucleotide)
+    where line nucleotide = [nucleotide] ++ ": " ++ unwords (tallies nucleotide)
           tallies n       = map (show . tally n) vecs
 
 tally :: Nucleotide -> Vec -> Int
@@ -59,7 +59,7 @@ consensuses (Profile vecs) = go vecs
 
         nucleotides :: Vec -> [Nucleotide]
         nucleotides vec = let tallies  = map (\n -> (n, tally n vec)) ['A', 'C', 'G', 'T']
-                              maxcount = maximum $ map snd $ tallies
+                              maxcount = maximum $ map snd tallies
                           in  map fst $ filter ((==maxcount) . snd) tallies
 
 -- Start with an empty profile for strands of constant length n
