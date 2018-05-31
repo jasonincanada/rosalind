@@ -5,7 +5,7 @@
    URL:     http://rosalind.info/problems/cons/
 
    Remarks: This is a different, somewhat more Haskell-ish solution compared to cons.hs.
-            It uses scalar addition of vectors to tally the profile counts.  cons.hs is
+            It uses addition of vectors to tally the profile counts.  cons.hs is
             probably a better solution overall, but this one is a result of thinking
             more in terms of transformations between structures instead of writing the
             "Haskell version" of the older imperative methods I would have used before.
