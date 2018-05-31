@@ -16,7 +16,6 @@
 -}
 
 import Bioinformatics (fastaSeq, parseFASTAdna)
-import Data.List      (intercalate)
 
 type Nucleotide = Char
 type DNA        = [Nucleotide]
